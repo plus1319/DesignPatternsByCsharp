@@ -1,4 +1,5 @@
 ﻿using System;
+using Adapter.Sample1;
 
 namespace Adapter
 {
@@ -6,7 +7,22 @@ namespace Adapter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" World!");
+            //Sample 1
+            IMemory cameraMemory = new CameraMemory();
+
+            IMemory sdCardMemor = new SDCardMemoryAdapter();
+
+            Console.WriteLine("The Camera Memory");
+            Console.WriteLine("---------------------");
+            cameraMemory.Connect();
+
+            Console.WriteLine("\n");
+
+            Console.WriteLine("The SDCard Memory");
+            Console.WriteLine("---------------------");
+            sdCardMemor.Connect();
+
+            Console.ReadKey();
         }
     }
 }
