@@ -11,7 +11,7 @@ namespace Singleton.Sample1
     {
         private static MathSingleton _instance;
         // Lock synchronization object
-        private static object syncLock = new object();
+        private static object _syncLock = new object();
 
         public MathSingleton() { }
         //************************************************************************
@@ -23,7 +23,7 @@ namespace Singleton.Sample1
             //lazy loading
             if (_instance == null)
                 //thread-safe
-                lock (syncLock)
+                lock (_syncLock)
                     //double check for thread-safe
                     if (_instance == null)
                         return _instance = new MathSingleton();
