@@ -1,4 +1,6 @@
 ﻿using System;
+using Template.Sample1;
+using Template.Sample2;
 
 namespace Template
 {
@@ -6,7 +8,19 @@ namespace Template
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //sample 2
+            DataExporter dataExporter = new ExcelExporter();
+            dataExporter.GetReport();
+
+            //==========================================================================
+
+            //sample 1
+            //BaseEngineering  baseEngineering = new SoftwareEngineering();
+            //baseEngineering.Study();
+
+
+
+            Console.ReadKey();
         }
     }
 }
