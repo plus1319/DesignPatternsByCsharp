@@ -77,7 +77,12 @@ namespace Specification.Strongly_Typed_Specification
             BinaryExpression andExpression = Expression.AndAlso(leftExpression.Body, rightExpression.Body);
 
             //convert binary expression to lambda
-            return Expression.Lambda<Func<T, Boolean>>(andExpression, leftExpression.Parameters.Single());
+            //return Expression.Lambda<Func<T, Boolean>>(andExpression, leftExpression.Parameters.Single());
+            var paramExpr = Expression.Parameter(typeof(T));
+            andExpression = (BinaryExpression)new ParameterReplacer(paramExpr).Visit(andExpression);
+            var finalExpr = Expression.Lambda<Func<T, bool>>(andExpression, paramExpr);
+
+            return finalExpr;
         }
     }
     public sealed class OrSpecification<T> : Specification<T>
@@ -99,7 +104,12 @@ namespace Specification.Strongly_Typed_Specification
             BinaryExpression orExpression = Expression.OrElse(leftExpression.Body, rightExpression.Body);
 
             //convert binary expression to lambda
-            return Expression.Lambda<Func<T, bool>>(orExpression, leftExpression.Parameters.Single());
+            //return Expression.Lambda<Func<T, bool>>(orExpression, leftExpression.Parameters.Single());
+            var paramExpr = Expression.Parameter(typeof(T));
+            orExpression = (BinaryExpression)new ParameterReplacer(paramExpr).Visit(orExpression);
+            var finalExpr = Expression.Lambda<Func<T, bool>>(orExpression, paramExpr);
+
+            return finalExpr;
         }
     }
     public sealed class NotSpecification<T> : Specification<T>
@@ -118,6 +128,20 @@ namespace Specification.Strongly_Typed_Specification
 
             //convert unary expression to lambda
             return Expression.Lambda<Func<T, bool>>(notExpression, expression.Parameters.Single());
+        }
+    }
+
+    internal class ParameterReplacer : ExpressionVisitor
+    {
+
+        private readonly ParameterExpression _parameter;
+
+        protected override Expression VisitParameter(ParameterExpression node)
+            => base.VisitParameter(_parameter);
+
+        internal ParameterReplacer(ParameterExpression parameter)
+        {
+            _parameter = parameter;
         }
     }
 }

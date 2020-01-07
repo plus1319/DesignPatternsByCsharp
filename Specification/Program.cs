@@ -28,8 +28,7 @@ namespace Specification
             Specification<StronglyTypedMovie> spec = Specification<StronglyTypedMovie>.All;
 
             spec = spec.And(new MovieForKidsSpecification());
-            //error if two expression fired
-            //spec = spec.Or(new HasCDSpecification());
+            spec = spec.Or(new HasCDSpecification());
             var test = stronglyTypedMovieRepository.Find(spec);
             foreach (var movie in test)
             {
