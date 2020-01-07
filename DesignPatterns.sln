@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template", "Template\Templa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visitor", "Visitor\Visitor.csproj", "{683FB27D-F9F3-479A-8E9D-BAB6752E381A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullObject", "NullObject\NullObject.csproj", "{F1724E7F-FAF2-4E31-AF8B-83BD623366E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullObject", "NullObject\NullObject.csproj", "{F1724E7F-FAF2-4E31-AF8B-83BD623366E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specification", "Specification\Specification.csproj", "{B5780CD3-7B11-40C8-B4E6-D40CFC416607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{F1724E7F-FAF2-4E31-AF8B-83BD623366E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1724E7F-FAF2-4E31-AF8B-83BD623366E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1724E7F-FAF2-4E31-AF8B-83BD623366E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5780CD3-7B11-40C8-B4E6-D40CFC416607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5780CD3-7B11-40C8-B4E6-D40CFC416607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5780CD3-7B11-40C8-B4E6-D40CFC416607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5780CD3-7B11-40C8-B4E6-D40CFC416607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +201,7 @@ Global
 		{37679BCE-85F0-4C28-B35E-1BF1409AB0B3} = {D8E28F32-D4A4-4893-B694-3630B1CBBDF1}
 		{683FB27D-F9F3-479A-8E9D-BAB6752E381A} = {D8E28F32-D4A4-4893-B694-3630B1CBBDF1}
 		{F1724E7F-FAF2-4E31-AF8B-83BD623366E6} = {D8E28F32-D4A4-4893-B694-3630B1CBBDF1}
+		{B5780CD3-7B11-40C8-B4E6-D40CFC416607} = {D8E28F32-D4A4-4893-B694-3630B1CBBDF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0121DCF-47AD-4479-9FAC-057560F648FF}
