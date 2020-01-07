@@ -28,11 +28,16 @@ namespace Specification
             Specification<StronglyTypedMovie> spec = Specification<StronglyTypedMovie>.All;
 
             spec = spec.And(new MovieForKidsSpecification());
-            spec = spec.Or(new HasCDSpecification());
-            var test = stronglyTypedMovieRepository.Find(spec);
-            foreach (var movie in test)
+            //spec = spec.Or(new HasCDSpecification());
+
+            //and take which movies not have a cd in this time
+            var hasCD = new HasCDSpecification();
+            spec = hasCD.Not();
+
+            var movieList = stronglyTypedMovieRepository.Find(spec);
+            foreach (var movie in movieList)
             {
-                Console.WriteLine($"this movie has cd :{movie.Name}");
+                Console.WriteLine($"this movie for kids and has not cd :{movie.Name}");
             }
             //==================================================================================
 
